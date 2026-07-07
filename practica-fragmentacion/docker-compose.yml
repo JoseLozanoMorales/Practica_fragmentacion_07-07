@@ -1,0 +1,37 @@
+services:
+  pg-campus:
+    image: postgres:16-alpine
+    container_name: pg-campus
+    environment:
+      POSTGRES_DB: cafeteria
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports: [ "5433:5432" ]
+    volumes:
+      - pg-campus-data:/var/lib/postgresql/data
+  pg-babahoyo:
+    image: postgres:16-alpine
+    container_name: pg-babahoyo
+    environment:
+      POSTGRES_DB: cafeteria
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports: [ "5434:5432" ]
+    volumes:
+      - pg-babahoyo-data:/var/lib/postgresql/data
+
+  pg-ventanas:
+    image: postgres:16-alpine
+    container_name: pg-ventanas
+    environment:
+      POSTGRES_DB: cafeteria
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports: [ "5435:5432" ]
+    volumes:
+      - pg-ventanas-data:/var/lib/postgresql/data
+
+volumes:
+  pg-campus-data:
+  pg-babahoyo-data:
+  pg-ventanas-data:
