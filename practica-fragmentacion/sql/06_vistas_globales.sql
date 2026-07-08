@@ -36,3 +36,8 @@ SELECT sede, SUM(monto) AS total
 FROM pedidos_global
 WHERE fecha = '2026-03-02'
 GROUP BY sede;
+
+CREATE VIEW clientes_global AS
+SELECT p.cliente_id, p.nombre,p.ciudad,c.email,c.telefono
+FROM clientes_publicosp (*@\label{lst:vertical-reconstr}@*)
+JOIN clientes_contacto_remotac USING (cliente_id);
